@@ -176,3 +176,11 @@ cython_debug/
 # static files generated from Django application using `collectstatic`
 media
 static
+_writing/__latexindent_temp.tex
+_writing/paper.aux
+_writing/paper.bbl
+_writing/paper.blg
+_writing/paper.fdb_latexmk
+_writing/paper.fls
+_writing/paper.synctex.gz
+_writing/paperNotes.bib
