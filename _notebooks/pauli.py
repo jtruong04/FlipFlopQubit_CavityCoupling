@@ -7,3 +7,5 @@ s3 = np.array([[1,0],[0,-1]])
 sx = s1
 sy = s2
 sz = s3
+
+pauli = (s0,s1,s2,s3)
