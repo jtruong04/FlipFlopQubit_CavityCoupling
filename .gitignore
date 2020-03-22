@@ -184,3 +184,5 @@ _writing/paper.fdb_latexmk
 _writing/paper.fls
 _writing/paper.synctex.gz
 _writing/paperNotes.bib
+
+_figures/*

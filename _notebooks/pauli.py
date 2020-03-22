@@ -9,3 +9,15 @@ sy = s2
 sz = s3
 
 pauli = (s0,s1,s2,s3)
+
+def a(n):
+    '''
+        returns the annihilation operator for maximum n photons
+    '''
+    a = np.zeros((n+1,n+1))
+    b = np.arange(1,n+1)
+    np.fill_diagonal(a[:,1:],np.sqrt(b))
+    return a
+
+def adagger(n):
+    return a(n).conj().T
