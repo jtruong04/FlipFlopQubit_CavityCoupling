@@ -21,3 +21,19 @@ def a(n):
 
 def adagger(n):
     return a(n).conj().T
+
+def kron(ms):
+    if len(ms) == 1:
+        return ms[0]
+    elif len(ms) == 2:
+        if(ms[0].shape[0]==0):
+            return ms[1]
+        elif(ms[1].shape[0]==0):
+            return ms[0]
+        else:
+            return np.kron(ms[0],ms[1])
+    else:
+        if(ms[0].shape[0]==0):
+            return kron(ms[1:])
+        else:
+            return np.kron(ms[0],kron(ms[1:]))
