@@ -2,8 +2,9 @@ import numpy as np
 from Scripts.constants import *
 from Scripts.pauli import *
 
-def computeDensityMatrix(system, initialState, T, Nt, withNoise = False, dephaseOnly = True):
-    H = system.getSystemHamiltonian()
+
+def computeDensityMatrix(system, initialState, T, Nt, withNoise=False, dephaseOnly=True, approxInteraction=[1, 1, 1, 1, 1, 1, 1, 1, 1], approxNoise=[1, 1, 1, 1, 1, 1, 1, 1, 1]):
+    H = system.getSystemHamiltonian(approxInteraction = approxInteraction)
     # Get eigenvalues and eigenvectors
     W, R = np.linalg.eig(H)
     Nstates = system.Nstates
@@ -16,7 +17,7 @@ def computeDensityMatrix(system, initialState, T, Nt, withNoise = False, dephase
     RR_INV = np.kron(R_inv, R_inv)
     # Get noise in eigenbasis.
     if withNoise:
-        noise, noiseParameters = system.getNoiseHamiltonian()
+        noise, noiseParameters = system.getNoiseHamiltonian(approxNoise=approxNoise)
         noise = [np.matmul( np.matmul( R_inv, hn ), R ) for hn in noise]
     # Oscillating term in L-F space. Is time dependent. We'll shape this as (N_t, ROW, COLS)
     timeRange = np.arange(0, T, T/Nt)

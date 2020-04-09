@@ -43,6 +43,7 @@ class FlipFlopSystem:
         self.parameters_cavity = params['parameters_cavity']
         self.parameters_noise = params['parameters_noise']
         self.Z1q = []
+        self.Zcoefs = []
         self.E1q = []
         assert(len(self.parameters_qubits) == self.Nd)
         assert(len(self.parameters_cavity) == self.Nm)
@@ -114,12 +115,15 @@ class FlipFlopSystem:
             Zcoef[3, 0] = np.cos(eta) - (hyperfine*np.sin(eta)**2)/(4*w0)
             Zcoef[3, 1] = (hyperfine*w0*np.sin(eta)**2)/(2*(w0**2-wB**2))
             Zcoef[3, 3] = (Delta*wB*np.sin(eta)**2)/(2*w0)
+            # print(f'Donor {i} Zcoef:')
+            # print(Zcoef)
             z = np.zeros((self.Nq, self.Nq))
             for j in np.arange(self.Nq):
                 for k in np.arange(self.Nq):
                     z = z + np.kron(pauli[j], pauli[k])*Zcoef[j, k]
             self.Z1q.append(z)
-        return self.Z1q
+            self.Zcoefs.append(Zcoef)
+        return self.Z1q, self.Zcoefs
 
     def getQubitHamiltonian(self):
         H_qubit = np.zeros((np.power(self.Np+1, self.Nm) * np.power(self.Nq, self.Nd),
@@ -135,12 +139,26 @@ class FlipFlopSystem:
                              np.power(self.Np+1, self.Nm) * np.power(self.Nq, self.Nd)))
         for mode in range(self.Nm):
             wc = self.parameters_cavity[mode]['wc']
+            # print(wc)
             H_cavity = H_cavity + kron([np.eye(mode), np.matmul(adagger(self.Np), a(
-                self.Np)), np.eye(self.Nm-1-mode), np.eye(self.Nq**self.Nd)])
+                self.Np)), np.eye(self.Nm-1-mode), np.eye(self.Nq**self.Nd)])*wc
+        # print(H_cavity)
         return H_cavity
 
-    def getInteractionHamiltonian(self):
-        z_op = self.ElectronPosition()
+    def getInteractionHamiltonian(self, approxInteraction=[1, 1, 1, 1, 1, 1, 1, 1, 1]):
+        z_op, z_coefs = self.ElectronPosition()
+        for donor in range(self.Nd):
+            z_op[donor] = (
+                z_coefs[donor][0, 1]*np.kron(pauli[0], pauli[1])*approxInteraction[0] +
+                z_coefs[donor][0, 3]*np.kron(pauli[0], pauli[3])*approxInteraction[1] +
+                z_coefs[donor][1, 0]*np.kron(pauli[1], pauli[0])*approxInteraction[2] +
+                z_coefs[donor][1, 1]*np.kron(pauli[1], pauli[1])*approxInteraction[3] +
+                z_coefs[donor][1, 3]*np.kron(pauli[1], pauli[3])*approxInteraction[4] +
+                z_coefs[donor][2, 2]*np.kron(pauli[2], pauli[2])*approxInteraction[5] +
+                z_coefs[donor][3, 0]*np.kron(pauli[3], pauli[0])*approxInteraction[6] +
+                z_coefs[donor][3, 1]*np.kron(pauli[3], pauli[1])*approxInteraction[7] +
+                z_coefs[donor][3, 3]*np.kron(pauli[3], pauli[3])*approxInteraction[8]
+            )
         H_interaction = np.zeros((np.power(self.Np+1, self.Nm) * np.power(self.Nq, self.Nd),
                                   np.power(self.Np+1, self.Nm) * np.power(self.Nq, self.Nd)))
         for mode in range(self.Nm):
@@ -152,8 +170,20 @@ class FlipFlopSystem:
                         np.power(self.Nq, donor)), z_op[donor]+np.eye(4), np.eye(np.power(self.Nq, (self.Nd-1-donor)))])
         return H_interaction
 
-    def getNoiseHamiltonian(self):
-        z_op = self.ElectronPosition()
+    def getNoiseHamiltonian(self, approxNoise=[1, 1, 1, 1, 1, 1, 1, 1, 1]):
+        z_op, z_coefs = self.ElectronPosition()
+        for donor in range(self.Nd):
+            z_op[donor] = (
+                z_coefs[donor][0, 1]*np.kron(pauli[0], pauli[1])*approxNoise[0] +
+                z_coefs[donor][0, 3]*np.kron(pauli[0], pauli[3])*approxNoise[1] +
+                z_coefs[donor][1, 0]*np.kron(pauli[1], pauli[0])*approxNoise[2] +
+                z_coefs[donor][1, 1]*np.kron(pauli[1], pauli[1])*approxNoise[3] +
+                z_coefs[donor][1, 3]*np.kron(pauli[1], pauli[3])*approxNoise[4] +
+                z_coefs[donor][2, 2]*np.kron(pauli[2], pauli[2])*approxNoise[5] +
+                z_coefs[donor][3, 0]*np.kron(pauli[3], pauli[0])*approxNoise[6] +
+                z_coefs[donor][3, 1]*np.kron(pauli[3], pauli[1])*approxNoise[7] +
+                z_coefs[donor][3, 3]*np.kron(pauli[3], pauli[3])*approxNoise[8]
+            )
         Hnoise = []
         for noise in range(self.Nn):
             wn = self.parameters_noise[noise]['wn']
@@ -168,5 +198,8 @@ class FlipFlopSystem:
             Hnoise.append(hn)
         return Hnoise, self.parameters_noise
 
-    def getSystemHamiltonian(self):
-        return self.getCavityHamiltonian() + self.getQubitHamiltonian() + self.getInteractionHamiltonian()
+    def getSystemHamiltonian(self, approxInteraction=[1, 1, 1, 1, 1, 1, 1, 1, 1]):
+        H = self.getCavityHamiltonian() + self.getQubitHamiltonian() + \
+            self.getInteractionHamiltonian(approxInteraction)
+        # print(H)
+        return H #self.getCavityHamiltonian() + self.getQubitHamiltonian() + self.getInteractionHamiltonian(approx)

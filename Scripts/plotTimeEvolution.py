@@ -88,7 +88,7 @@ def plotFlipFlopPopulation(t, rho_ff, numDonors, states=[], name = ''):
     plt.show()
     return fileName
 
-def saveParameters(filename, noise, parameters_qubits, parameters_cavity,parameters_noise):
+def saveParameters(filename, noise, parameters_qubits, parameters_cavity,parameters_noise,approxInteraction,approxNoise):
     eps = []
     wB = []
     Vt = []
@@ -112,5 +112,5 @@ def saveParameters(filename, noise, parameters_qubits, parameters_cavity,paramet
         wn.append(parameters_noise[noise]['wn'])
     with open('_figures/Exp_Parameters.csv', 'a+') as f:
         f.write(
-            f"{filename}\t{noise}\t'{eps}'\t'{wB}'\t'{Vt}'\t'{wc}'\t'{gc}\t{wn}'\n"
+            f'{filename},\t{noise},\t"{eps}",\t"{wB}",\t"{Vt}",\t"{wc}",\t"{gc}",\t"{wn}",\t"{approxInteraction}",\t"{approxNoise}"\n'
         )
