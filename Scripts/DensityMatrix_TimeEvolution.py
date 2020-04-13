@@ -2,7 +2,6 @@ import numpy as np
 from Scripts.constants import *
 from Scripts.pauli import *
 
-
 def computeDensityMatrix(system, initialState, T, Nt, withNoise=False, dephaseOnly=True, approxInteraction=[1, 1, 1, 1, 1, 1, 1, 1, 1], approxNoise=[1, 1, 1, 1, 1, 1, 1, 1, 1]):
     H = system.getSystemHamiltonian(approxInteraction = approxInteraction)
     # Get eigenvalues and eigenvectors
@@ -19,45 +18,33 @@ def computeDensityMatrix(system, initialState, T, Nt, withNoise=False, dephaseOn
     if withNoise:
         noise, noiseParameters = system.getNoiseHamiltonian(approxNoise=approxNoise)
         noise = [np.matmul( np.matmul( R_inv, hn ), R ) for hn in noise]
-    # Oscillating term in L-F space. Is time dependent. We'll shape this as (N_t, ROW, COLS)
     timeRange = np.arange(0, T, T/Nt)
+
     W_mat = np.kron(W, np.ones(Nstates))-np.kron(np.ones(Nstates), W)
-    eiwtList = np.exp(np.kron(timeRange[:, np.newaxis], W_mat)*1j)
-    eiwt = np.zeros((Nt, Nstates**2, Nstates**2))
-    for t in range(Nt):
-        eiwt[t].flat[slice(0, None, 1+Nstates**2)] = eiwtList[t]
-
-    # Build noise decay matrix
-    noiseMatrix = np.zeros((Nt, Nstates**2, Nstates**2))
-
-    if withNoise:
-        # noiseMatrix = np.eye(RR.shape[0])
-        if dephaseOnly:
-            Kt = 0
-            for i, hn in enumerate(noise):
-                gamma_squared = np.power((np.kron(np.diag(np.diag(hn)), np.eye(Nstates)) - \
-                    np.kron(np.eye(Nstates),np.diag(np.diag(hn))))/hbar,2)
-                jt = np.asarray([noiseParameters[i]['type'].J(t, 0, 0)
-                                 for t in timeRange])
-                Kt += jt[:, np.newaxis, np.newaxis]*gamma_squared
-            for i, K in enumerate(Kt):
-                # print(K)
-                noiseMatrix[i] = np.diag(np.exp(np.diag(-1.0*K)))
-    #         for it, t in enumerate(timeRange):
-    #             Klist = np.zeros((1, Nstates**2))
-    #             for i, hn in enumerate(noise):
-    #                 Klist = Klist + (np.kron(np.power(np.diag(hn), 2), np.ones(Nstates)) -
-    #                                  np.kron(np.ones(Nstates), np.power(np.diag(hn), 2))) * noiseParameters[i]['type'].J(t, 0, 0)
-    #             noiseMatrix[it].flat[slice(0, None, 1+Nstates**2)]=np.exp(Klist)
+    rho = np.zeros((Nt, Nstates,Nstates))
+    for it, t in enumerate(timeRange):
+        eiwt = np.diag(np.exp(W_mat * 1j * t))
+        noiseMatrix = np.zeros((Nstates**2, Nstates**2), dtype=complex)
+        if withNoise:
+            if dephaseOnly:
+                Kt = np.zeros((Nstates**2, Nstates**2),dtype=complex)
+                for i, hn in enumerate(noise):
+                    gamma_squared = np.power((np.kron(np.diag(np.diag(hn)), np.eye(Nstates)) -
+                                            np.kron(np.eye(Nstates), np.diag(np.diag(hn))))/hbar, 2)
+                    jt = noiseParameters[i]['type'].J(t, 0, 0)
+                    Kt = Kt + jt*gamma_squared
+                noiseMatrix = np.diag(np.exp(np.diag(-1.0*Kt)))
+            else:
+                pass
         else:
-            pass
-    else:
-        noiseMatrix = np.eye(RR.shape[0])
-
-    # print(noiseMatrix)
-
-    rho = (np.matmul(np.matmul(np.matmul(np.matmul(RR, eiwt), noiseMatrix), RR_INV),
-                     initial_rho_vec)).reshape(Nt, Nstates, Nstates)
+            noiseMatrix = np.eye(RR.shape[0])
+        # print(RR.shape, eiwt.shape, noiseMatrix.shape, RR_INV.shape, initial_rho_vec.shape)
+        rho[it] = np.matmul(np.matmul(np.matmul(np.matmul(
+                        RR,
+                        eiwt),
+                        noiseMatrix),
+                        RR_INV),
+                        initial_rho_vec).reshape(Nstates,Nstates)
     return timeRange, rho
 
 def partialTrace(rho, Na, Nb):
