@@ -9,7 +9,7 @@ class FlipFlopSystem:
                                     'Np': 1,
                                     'Nd': 1,
                                     'Nn': 0,
-                                    'parameters_cavity': [{'wc':0, 'gc':0}],
+                                    'parameters_cavity': [{'wcav':0, 'g':0}],
                                     'parameters_qubits': [{'eps':0, 'wB':0, 'Vt':0}],
                                     'parameters_noise': [{'type':Pink(),'wn':0,'effected_donors':[0]}]
                                 }
@@ -25,7 +25,7 @@ class FlipFlopSystem:
             Nm : Number of cavity modes
             Np : Max number of photons per mode
             parameters_cavity : list of size Nm dicts containing cavity parameters
-                {'wc', 'gc'}
+                {'wcav', 'g'}
             Nn : Number of noise sources
             parameters_noise : list of size Nn
                 {'type', 'wn', 'effected_donors'}
@@ -138,10 +138,10 @@ class FlipFlopSystem:
         H_cavity = np.zeros((np.power(self.Np+1, self.Nm) * np.power(self.Nq, self.Nd),
                              np.power(self.Np+1, self.Nm) * np.power(self.Nq, self.Nd)))
         for mode in range(self.Nm):
-            wc = self.parameters_cavity[mode]['wc']
-            # print(wc)
+            wcav = self.parameters_cavity[mode]['wc']
+            # print(wcav)
             H_cavity = H_cavity + kron([np.eye(mode), np.matmul(adagger(self.Np), a(
-                self.Np)), np.eye(self.Nm-1-mode), np.eye(self.Nq**self.Nd)])*wc
+                self.Np)), np.eye(self.Nm-1-mode), np.eye(self.Nq**self.Nd)])*wcav
         # print(H_cavity)
         return H_cavity
 
@@ -162,9 +162,9 @@ class FlipFlopSystem:
         H_interaction = np.zeros((np.power(self.Np+1, self.Nm) * np.power(self.Nq, self.Nd),
                                   np.power(self.Np+1, self.Nm) * np.power(self.Nq, self.Nd)))
         for mode in range(self.Nm):
-            gc = self.parameters_cavity[mode]['gc']
+            g = self.parameters_cavity[mode]['gc']
             for donor in range(self.Nd):
-                H_interaction = H_interaction + 0.5*gc * \
+                H_interaction = H_interaction + 0.5*g * \
                     kron([np.eye(mode), adagger(self.Np) +
                           a(self.Np), np.eye(self.Nm-1-mode), np.eye(
                         np.power(self.Nq, donor)), z_op[donor]+np.eye(4), np.eye(np.power(self.Nq, (self.Nd-1-donor)))])

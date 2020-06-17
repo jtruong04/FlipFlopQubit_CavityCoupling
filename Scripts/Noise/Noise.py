@@ -53,3 +53,8 @@ class Noise:
         if(t == 0):
             return 0
         return self.JS(t, w1, w2) + self.JA(t, w1, w2)
+
+    def J(self, t):
+        if(t == 0):
+            return 0
+        return self.JS(t, 0,0) + self.JA(t, 0,0)

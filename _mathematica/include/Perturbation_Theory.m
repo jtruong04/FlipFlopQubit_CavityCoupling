@@ -88,5 +88,16 @@ HTrans
 ]
 
 
+SWTransS[EN_,V_,M_,ORDER_:2]:=Module[{L},
+L=Length[EN];
+S=Table[0,L,L];
+If[ORDER==1,S[[1;;M,M+1;;L]]+=Table[-(V[[m,l]]/(EN[[m]]-EN[[l]])),{m,1,M},{l,M+1,L}]];
+If[ORDER==2,S[[1;;M,M+1;;L]]+=Table[1/(EN[[m]]-EN[[l]])*(Sum[(V[[m,m']]*V[[m',l]])/(EN[[m']]-EN[[l]]),{m',1,M}]-Sum[(V[[m,l']]*V[[l',l]])/(EN[[m]]-EN[[l']]),{l',M+1,L}]),{m,1,M},{l,M+1,L}]];
+If[ORDER==3,S[[1;;M,M+1;;L]]+=Table[1/(EN[[m]]-EN[[l]])*(-Sum[(V[[m,m'']]*V[[m'',m']]*V[[m',l]])/((EN[[m'']]-EN[[l]])*(EN[[m']]-EN[[l]])),{m',1,M},{m'',1,M}]-Sum[(V[[m,l']]*V[[l',l'']]*V[[l'',l]])/((EN[[m]]-EN[[l'']])*(EN[[m]]-EN[[l']])),{l',M+1,L},{l'',M+1,L}]+Sum[(V[[m,m']]*V[[m',l']]*V[[l',l]])/((EN[[m']]-EN[[l]])*(EN[[m']]-EN[[l']])),{m',1,M},{l',M+1,L}]+Sum[(V[[m,m']]*V[[m',l']]*V[[l',l]])/((EN[[m]]-EN[[l']])*(EN[[m']]-EN[[l']])),{m',1,M},{l',M+1,L}]+1/3*Sum[(V[[m,l']]*V[[l',m']]*V[[m',l]])/((EN[[m']]-EN[[l']])*(EN[[m']]-EN[[l]])),{m',1,M},{l',M+1,L}]+1/3*Sum[(V[[m,l']]*V[[l',m']]*V[[m',l]])/((EN[[m]]-EN[[l']])*(EN[[m']]-EN[[l']])),{m',1,M},{l',M+1,L}]+2/3*Sum[(V[[m,l']]*V[[l',m']]*V[[m',l]])/((EN[[m]]-EN[[l']])*(EN[[m']]-EN[[l]])),{m',1,M},{l',M+1,L}]),{m,1,M},{l,M+1,L}]];
+S=S-Transpose[S];
+S
+]
+
+
 (* ::Input::Initialization:: *)
 PercentError[actual_,measured_]:=(measured-actual)/actual*100;

@@ -57,7 +57,7 @@ def base10toN(num, base):
         converted_string = chr(48 + mod + 7*(mod > 10)) + converted_string
     return converted_string
 
-def plotFlipFlopPopulation(t, rho_ff, numDonors, states=[], name = ''):
+def plotFlipFlopPopulation(t, rho_ff, numDonors=2, states=[], name = ''):
     plt.rc("font", size=24)
     matplotlib.rcParams['font.serif'] = "Times New Roman"
     matplotlib.rcParams['font.family'] = "serif"
@@ -67,18 +67,18 @@ def plotFlipFlopPopulation(t, rho_ff, numDonors, states=[], name = ''):
     if len(states) == 0:
         for state in np.arange(rho_ff.shape[1]):
             statelabel = base10toN(state, 4).rjust(numDonors,'0')
-            ax.plot(t/1000000, rho_ff[:, state, state], label=rf'$P({statelabel})$', color=UBColors[state % 12])
+            ax.plot(t/1000, rho_ff[:, state, state], label=rf'$P({statelabel})$', color=UBColors[state % 12])
     else:
         for i, state in enumerate(states):
             statelabel = base10toN(state, 4).rjust(numDonors, '0')
-            ax.plot(t/1000000, rho_ff[:, state, state],
+            ax.plot(t/1000, rho_ff[:, state, state],
                     label=rf'$P({statelabel})$', color=UBColors[i%12])
-    ax.set_xlabel(r'Time (ms)')
+    ax.set_xlabel(r'Time ($\mu$s)')
     ax.set_ylabel('')
     ax.set_title('Flip Flop Population')
     plt.grid(alpha=0.25)
     ax.set_ylim([-0.01, 1.01])
-    plt.legend(loc=1)
+    # plt.legend(loc=1)
     if(len(name) == 0) :
         timeString = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
         fileName = 'FlipFlopPopulation_'+timeString+'.png'
@@ -88,12 +88,12 @@ def plotFlipFlopPopulation(t, rho_ff, numDonors, states=[], name = ''):
     plt.show()
     return fileName
 
-def saveParameters(filename, parameters_qubits, parameters_cavity,parameters_noise,detuning,approxInteraction,approxNoise):
+def saveParameters(filename, parameters_qubits, parameters_cavity,parameters_noise,detuning):
     eps = []
     wB = []
     Vt = []
-    wc = []
-    gc = []
+    wcav = []
+    g = []
     wn = []
     delta = []
     Nd = len(parameters_qubits)
@@ -107,12 +107,12 @@ def saveParameters(filename, parameters_qubits, parameters_cavity,parameters_noi
         wB.append(parameters_qubits[donor]['wB'])
         Vt.append(parameters_qubits[donor]['Vt'])
     for mode in range(Np):
-        wc.append(parameters_cavity[mode]['wc'])
-        gc.append(parameters_cavity[mode]['gc'])
+        wcav.append(parameters_cavity[mode]['wc'])
+        g.append(parameters_cavity[mode]['gc'])
         delta.append(detuning)
     for noise in range(Nn):
         wn.append(parameters_noise[noise]['wn'])
     with open('_figures/Exp_Parameters.csv', 'a+') as f:
         f.write(
-            f'{filename},\t"{eps}",\t"{wB}",\t"{Vt}",\t"{wc}",\t"{delta}",\t"{gc}",\t"{wn}",\t"{approxInteraction}",\t"{approxNoise}"\n'
+            f'{filename},\t"{eps}",\t"{wB}",\t"{Vt}",\t"{wcav}",\t"{delta}",\t"{g}",\t"{wn}"\n'
         )
