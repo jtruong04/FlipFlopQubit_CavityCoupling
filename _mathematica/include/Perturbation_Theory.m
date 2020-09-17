@@ -97,6 +97,13 @@ If[ORDER==3,S[[1;;M,M+1;;L]]+=Table[1/(EN[[m]]-EN[[l]])*(-Sum[(V[[m,m'']]*V[[m''
 S=S-Transpose[S];
 S
 ]
+ApplySWTrans[A_,EN_,V_,M_,ORDER_:2]:=Module[{S1,S2,Anew,commutator},
+	commutator[a_,b_]:=a.b-b.a;
+	Anew=A;
+	If[ORDER>=1,S1=SWTransS[EN,V,M,1];Anew+=commutator[A,S1]];
+	If[ORDER>=2,S2=SWTransS[EN,V,M,2];Anew+=commutator[A,S2]+1/2*commutator[commutator[A,S1],S1]];
+	Return[Anew[[1;;M,1;;M]]];
+]
 
 
 (* ::Input::Initialization:: *)

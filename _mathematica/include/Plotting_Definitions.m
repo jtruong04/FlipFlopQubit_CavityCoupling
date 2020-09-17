@@ -19,7 +19,9 @@ UBBairdPoint=RGBColor["#e4e4e4"];
 UBPutnamGray=RGBColor["#666666"];
 UBColors={UBHarrimanBlue,UBCapenBrick,UBOlmstedGreen,UBBronzeBuffalo,UBBlue,UBLetchworthAutumn,UBLakeLaSalle,UBSolarStrand,UBVictorEBull};
 UBDark=Blend[{UBCapenBrick,White,UBHarrimanBlue},#]&;
+UBGradient=Blend[{White,UBBlue},#]&;
 UBLight=Blend[{UBLetchworthAutumn,White,UBBlue},#]&;
+UBLightReverse=Blend[{UBBlue,White,UBLetchworthAutumn},#]&;
 texStyle={FontFamily->"Latin Modern Roman",FontSize->24};
 plotStyle={Frame->True,
 BaseStyle->texStyle,PlotStyle->Table[{UBColors[[i]],Thickness[0.005]},{i,9}],

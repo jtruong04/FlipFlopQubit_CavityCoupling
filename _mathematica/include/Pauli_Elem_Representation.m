@@ -37,3 +37,6 @@ MatrixToPauli[x_]:=MatrixToPauli[x]=Module[{n},
 n=If[SquareMatrixQ[x],Log[2,Dimensions[x][[1]]],Log[4,Length[x]]];
 Return[CoefficientTransformation[n,True].Flatten[x]];
 ];
+
+
+commutator[a_,b_]:=a.b-b.a

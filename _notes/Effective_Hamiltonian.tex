@@ -1,0 +1,265 @@
+\documentclass[
+    % reprint,
+    preprint,
+    amsmath,amssymb,
+    aps,
+    prb,
+    floatfix,
+]{revtex4-2}
+
+\usepackage{graphicx}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{lipsum}
+\usepackage{framed}
+\usepackage{braket}
+%\usepackage{hyperref}
+
+\begin{document}
+
+\title{Flip-Flop Qubit Coupling Mediated by a Microwave Cavity: Effective Hamiltonian}
+
+\author{John Truong}
+\author{Xuedong Hu}%
+ \email{xhu@buffalo.edu}
+\affiliation{%
+ University at Buffalo\\
+ jtruong@buffalo.edu
+}
+
+\date{\today}
+
+\begin{abstract}
+    
+\end{abstract}
+
+\maketitle
+
+\section{Full Hamiltonian}
+    We first start by providing the full Hamiltonian for a multiqubit system with a microwave cavity.
+    \begin{equation}
+        H = H_q + H_{cav} + H_{int} \,.
+    \end{equation}
+    The individual parts of this Hamiltonian are:
+    \begin{align}
+        H_q &= -\frac{\hbar}{2}\sum_{i} \omega_{\sigma,i} \sigma_{z,i} + \omega_{\tau,i} \tau_{z,i} \\
+        H_{cav} &= \hbar\omega_{cav}a^\dagger a \\
+        H_{int} &= \frac{\hbar}{2}\sum_i g(a^\dagger+a)(1+Z_i) \,,
+    \end{align}
+    where the summation over $i$ is over all donors. The $\omega_{\sigma,i}$ and $\omega_{\tau,i}$ are the charge and flip-flop qubit energies for each donor, respectively, while $\omega_{cav}$ is the cavity energy. $g$ is the coupling strength of the cavity to the electric dipole. $a$ and $a^\dagger$ are the usual photonic annihilation and creation operators. Lastly, the $(1+Z_i)/2$ terms are the electric dipole moments of each donor. $Z_i$ can also be written in terms of the Pauli operators,
+    \begin{equation}
+        Z_i = \sum_{jk}z_{jk,i}\sigma_{j,i}\tau_{k,i} \,.
+    \end{equation}
+
+\section{Rotating Wave Approximation}
+    In order to better work with the above Hamiltonian, we perform the rotating wave approximation (RWA). In order to do this, we operate under a set of assumptions:
+    \begin{framed}
+        \begin{enumerate}
+            \item The flip-flop qubit for the two lowest energy states for each donor: $\omega_\tau < \omega_\sigma$
+            \item The flip-flop and charge qubits and the cavity all have energies of the same order of magnitude: $\omega_{cav}\approx\omega_\sigma\approx\omega_\tau$
+        \end{enumerate}
+    \end{framed}
+
+    To perform the RWA, the steps are outlined below:
+    \begin{enumerate}
+        \item Transform into the interaction picture.
+        \item Drop the counter-rotating terms (i.e. the fast oscillating terms).
+        \item Transform back into the Schroedinger picture.
+    \end{enumerate}
+
+    \subsection{Interaction Picture}
+    An operator expressed in the interaction picture is given by:
+    \begin{equation}
+        A(t) = e^{iH_0t/\hbar}Ae^{-iH_0t/\hbar} \,.
+    \end{equation}
+    which is the solution to the differential equation
+    \begin{equation}
+        i\hbar\frac{\partial}{\partial t}A(t) = \left[A,H_0\right]
+    \end{equation} 
+    Here, we will use the explicit time dependence to indicate an operator in the interaction picture. The $H_0$ is the non-interactive part of the Hamiltonian. In our case, $H_0 = H_{cav} + H_q$. Ultimately, our goal is to obtain $H_{int}(t)$. To do this, we first obtain each of the operators present in $H_{int}$ in the interaction picture individually.
+
+    a) \emph{The cavity operators, $a$ and $a^\dagger$}.
+    \begin{align*}
+        \dot{a}(t) &= -\frac{i}{\hbar}\left[a,H_0\right] = -\frac{i}{\hbar}\left[a,\hbar\omega_{cav}a^\dagger a\right] = -i\omega_{cav}a \\
+        a(t) &= ae^{-i\omega_{cav}t} \\
+        a^\dagger(t) &= a^\dagger e^{i\omega_{cav}t}
+    \end{align*}
+
+    b) \emph{The Pauli z operators, $\sigma_z$ and $\tau_z$}.
+    \begin{align*}
+        \dot{\sigma}_z(t) &= -\frac{i}{\hbar}\left[\sigma_z,H_0\right] = -\frac{i}{\hbar}\left[\sigma_z,-\frac{\hbar}{2}\omega_\sigma\sigma_z\right] = 0 \\
+              \sigma_z(t) &= \sigma_z \\
+                \tau_z(t) &= \tau_z
+    \end{align*}
+
+    c) \emph{The Pauli x and y operators, $\sigma_{x(y)}$ and $\tau_{x(y)}$}.
+    For this set of operators, it is easier to instead work with the raising and lowering operators $\sigma_\pm (\tau_\pm)$. We'll define the charge operators as:
+    \begin{equation}
+        \sigma_\pm = \sigma_x \mp i\sigma_y
+    \end{equation}
+    and similarly for the flip-flop ones.
+    \begin{framed}
+        Note: This definition is opposite from the standard convention of $\sigma_\pm = \sigma_x \pm i\sigma_y$. This is because of the ordering of the energy eigenvalues. The usual $\sigma_+$ will raise the eigenvalue of the $\sigma_z$ operator to the next value. However since the eigenvalues of $\sigma_z$ are ordered from high to low while our energies are ordered from low to high, the standard $\sigma_+$ would lower our energy state. The flipped definition will keep it clear that the raising operator increases the energy.
+    \end{framed}
+    The inverse equations are then:
+    \begin{align}
+        \sigma_x &= \sigma_+ + \sigma_- \\
+        \sigma_y &= i\sigma_+ - i\sigma_-
+    \end{align}
+    We now get the raising and lowering operators in the interaction picture.
+    \begin{align*}
+        \dot{\sigma}_\pm(t) &= -\frac{i}{\hbar}\left[\sigma_\pm,H_0\right] \\
+                            &=-\frac{i}{\hbar}\left[\sigma_\pm,-\frac{\hbar}{2}\omega_\sigma\sigma_z \right] \\
+                            &= \frac{1}{2}i\omega_\sigma \left[\sigma_x\mp i\sigma_y,\sigma_z \right] \\
+                            &= \frac{1}{2}i\omega_\sigma\left( -2i\sigma_y \pm 2\sigma_x \right) \\
+                            &= i\omega_\sigma\left( -i\sigma_y \pm \sigma_x \right) \\
+                            &= \pm i\omega_\sigma(\sigma_x\mp i\sigma_y) \\
+                            &= \pm i\omega_\sigma\sigma_\pm\\
+                \sigma_\pm(t) &= \sigma_\pm e^{\pm i \omega_\sigma t}
+    \end{align*}
+    Now we can write the Pauli $x$ and $y$ matrices in the interaction picture.
+    \begin{align*}
+        \sigma_x(t) &= \sigma_+e^{i\omega_\sigma t} + \sigma_-e^{-i\omega_\sigma t} = \sigma_x(e^{i\omega_\sigma t}+e^{-i\omega_\sigma t})-i\sigma_y(e^{i\omega_\sigma t}-e^{-i\omega_\sigma t}) \\
+        \sigma_y(t) &= i\sigma_+e^{i\omega_\sigma t} -i \sigma_-e^{-i\omega_\sigma t} = \sigma_y(e^{i\omega_\sigma t}+e^{-i\omega_\sigma t})+i\sigma_x(e^{i\omega_\sigma t}-e^{-i\omega_\sigma t})  \\
+        \tau_x(t) &= \tau_+e^{i\omega_\tau t} + \tau_-e^{-i\omega_\tau t} = \tau_x(e^{i\omega_\tau t}+e^{-i\omega_\tau t})-i\tau_y(e^{i\omega_\tau t}-e^{-i\omega_\tau t})\\
+        \tau_y(t) &= i\tau_+e^{i\omega_\tau t} -i \tau_-e^{-i\omega_\tau t}= \tau_y(e^{i\omega_\tau t}+e^{-i\omega_\tau t})+i\tau_x(e^{i\omega_\tau t}-e^{-i\omega_\tau t})\\ \\
+    \end{align*}
+
+
+
+    \subsection{Dropping Terms}
+    The interaction Hamiltonian is:
+    \begin{equation}
+        H_{int}(t) = \frac{\hbar g}{2}\sum_i (a^\dagger(t)+a(t))+\frac{\hbar g}{2}\sum_i\sum_{jk}z_{jk,i}(a^\dagger(t)+a(t))\sigma_{j,i}(t)\tau_{k,i}(t) \,.
+        \label{Hint_I}
+    \end{equation}
+
+    The first term in the above equation accounts for vacuum fluctutations. We will neglect these terms for now. Furthermore, terms in the second summation that only include Pauli $z$ operators and the identity also only contribute to vacuum fluctutations and will also be ignored.
+
+    Of the remaining terms, we only keep ones where there is potential for energy conservation. Since $a(t)$ would absorb a photon, we only keep terms that increase the qubit energy state. Conversely, for $a^\dagger(t)$, we keep only terms that decrease the energy state.
+
+    What's left is
+    \begin{multline}
+        H_{int}(t) = \frac{\hbar g}{2}\sum_i a(t)\left[ (z_{01}+iz_{02})\tau_+(t) + (z_{10}+iz_{20})\sigma_+(t) \right. \\ 
+        + (z_{11} + iz_{21})\sigma_+(t)\tau_x(t) +(z_{12}+iz_{22})\sigma_+(t)\tau_y(t) \\
+        \left. +(z_{13}+iz_{23})\sigma_+(t)\tau_z(t) + (z_{31}+iz_{32})\sigma_z(t)\tau_+(t) \right] + h.c.
+    \end{multline}
+
+    While at this point, we are still entirely general, we can apply conditions specific to the flip-flop system to simplify the equation further. First we eliminate the $z_{jk}$ that are exactly equal to zero.
+    \begin{multline}
+        H_{int}(t) = \frac{\hbar g}{2}\sum_i a(t)\left[ (z_{01}+z_{31}\sigma_z(t))\tau_+(t) + (z_{10}+z_{13}\tau_z(t))\sigma_+(t) \right. \\
+        \left.  +( z_{11}-z_{22})\sigma_+(t)\tau_+(t)+(z_{11}+z_{22})\sigma_+(t)\tau_-(t)\right] + h.c.
+    \end{multline}
+    Next, $z_{01} \ll z_{31}$ and $z_{10} \gg z_{13}$ so we can neglect those terms. We define new constants
+    \begin{align}
+        g_\sigma &= \frac{1}{2}gz_{10} \\
+        g_\tau &= \frac{1}{2}gz_{31} \\
+        g_\pm &= \frac{1}{2}g(z_{11}\pm z_{22}) 
+    \end{align}
+    so that the final Hamiltonian in the interaction picture is
+    \begin{equation}
+        H_{int}(t) = \hbar\sum_ia(t)\left[ g_{\sigma,i}\sigma_{+,i}(t)+g_{\tau,i}\sigma_{z,i}\tau_{+,i}(t) + g_{+,i}\sigma_{+,i}(t)\tau_{-,i}(t) + g_{-,i}\sigma_{+,i}(t)\tau_{+,i}(t) \right] + h.c.
+    \end{equation}
+    
+    \subsection{Back to Schroedinger Picture}
+    Our effective Hamiltonian is finally
+    \begin{equation}
+        H_{int} = \hbar\sum_ia\left[ g_{\sigma}^{(i)}\sigma_{+}^{(i)}+g_{\tau}^{(i)}\sigma_{z}^{(i)}\tau_{+}^{(i)} + g_{+}^{(i)}\sigma_{+}^{(i)}\tau_{-}^{(i)} + g_{-}^{(i)}\sigma_{+}^{(i)}\tau_{+}^{(i)} \right] + h.c.
+    \end{equation}
+    To simplify analysis, we split this into two parts $H_{int} = H_1 + H_2$ where
+    \begin{align}
+        H_1 &= \hbar\sum_ia\left[ g_{\sigma}^{(i)}\sigma_{+}^{(i)}+g_{\tau}^{(i)}\sigma_{z}^{(i)}\tau_{+}^{(i)} \right] + h.c. \\
+        H_2 &= \hbar\sum_ia\left[ g_{+}^{(i)}\sigma_{+}^{(i)}\tau_{-}^{(i)} + g_{-}^{(i)}\sigma_{+}^{(i)}\tau_{+}^{(i)} \right] + h.c. \,.
+    \end{align}
+    $H_1$ conserves the total number of excitations (photons + flip-flop + charge), $N$, while $H_2$ does not. This does mean that $H_0 + H_1$ is block diagonal with respect to $N$. This is conducive to applying a Schrieffer-Wolff transformation to fold $H_2$ into those blocks, turning an infinite Hilbert space to an infinite set of finite ones.
+
+    \subsection{Projecting Onto $N$ basis}
+    To better perform this, we should first project each of the Hamiltonians into a basis descibed by the total number of excitations, $N$, rather the photon occupancy $n$. First, let's clarify some notation. When in the photon basis, states will will expressed like so: $\ket{\psi} = \ket{n}\ket{J}=\ket{n,J}$, where $\ket{n}$ is the cavity photon occupation and $\ket{J}=\Pi_i\ket{J_i}$ forms the set of qubit states. In the total excitation basis, we'll use $\ket{\psi} = \ket{N}'\ket{J}=\ket{N,J}'$ where $\ket{N}'$ is the total number of excitations.
+
+    We also define a counting operator $P_i$ that counts the number of excitation on a qubit.
+    \begin{equation}
+        P_i\ket{J_i} = \textrm{diag}(0,1,1,2) = 1-\frac{1}{2}\sigma_z^{(i)}-\frac{1}{2}\tau_z^{(i)}
+    \end{equation}
+    With this, we can partially project our Hamiltonian using a new operator $N = a^\dagger a + \sum_i P_i$.
+    \begin{equation}
+        H_0 = \hbar\omega_{cav}N - \frac{1}{2}\sum_i \left(\delta_\sigma^{(i)}\sigma_z^{(i)}+\delta_\tau^{(i)}\tau_z^{(i)}\right) \,
+    \end{equation}
+    where $\delta_{\sigma(\tau)} = \omega_{\sigma(\tau)}-\omega_{cav}$.
+    
+    Unfortunately, there is no simple and general way to project $a$ and $a^\dagger$ onto the $N$ basis for an arbitrary number of qubit systems so $H_1$ and $H_2$ will have to be dealt with on a case-by-case basis for varying values of the total number of donors $Q$. Since we are interested in two-qubit coupling first and foremost, the rest of the work will be on one and two-qubit systems.
+    
+    \section{Single Qubit System}
+    \subsection{Matrix Representation}
+        We can first start by expressing $H$ in matrix form.
+        \begin{align}
+            \bra{N}H_0\ket{N}&=H^0_N= \hbar\omega_{cav}NI_4 + \frac{\hbar}{2} \begin{pmatrix}
+                 - \delta_\sigma - \delta_\tau & 0 & 0 & 0 \\
+                0& - \delta_\sigma + \delta_\tau & 0 & 0 \\
+                0&0&+ \delta_\sigma - \delta_\tau  & 0 \\
+                0 & 0 & 0 & + \delta_\sigma + \delta_\tau
+            \end{pmatrix} \\
+            &= \hbar\omega_{cav}NI_4-\frac{\hbar}{2}(\delta_\sigma\sigma_z+\delta_\tau\tau_z) \\
+            \bra{N}H_1\ket{N}&=H^1_N=\begin{pmatrix}
+               0 & \sqrt{N}g_\tau & \sqrt{N}g_\sigma & 0 \\
+               \sqrt{N}g_\tau & 0 & 0 & \sqrt{N-1}g_\sigma \\
+               \sqrt{N}g_\sigma & 0 & 0 & -\sqrt{N-1}g_\tau \\
+               0 & \sqrt{N-1}g_\sigma & -\sqrt{N-1}g_\tau & 0
+           \end{pmatrix} \\
+           &=\frac{\hbar}{2}g_\sigma\left(\sqrt{N}\sigma_x(1+\tau_z)+\sqrt{N-1}\sigma_x(1-\tau_z)\right)+\frac{\hbar}{2}g_\tau\left(\sqrt{N}(1+\sigma_z)\tau_x-\sqrt{N-1}(1-\sigma_z)\tau_x\right)\\
+            \bra{N+1}H_2\ket{N}&=H^2_N= \sqrt{N}\hbar\begin{pmatrix}
+                0 & 0 & 0 & 0 \\
+                0 & 0 &  g_+ & 0 \\
+                0 & 0 & 0 & 0 \\
+                 g_- & 0 & 0 & 0
+            \end{pmatrix} \\
+            &= \sqrt{N}\hbar(g_+\sigma_-\tau_++g_-\sigma_+\tau_+) \\
+            \bra{N}H_2\ket{N+1} &= H_N^{2\dagger}
+        \end{align}
+    \subsection{Schrieffer-Wolff Transform}
+        \begin{framed}
+            From the Winkler textbook:
+            \begin{equation}
+                \tilde{H} = e^{-S}He^{S}
+            \end{equation}
+            where $S$ is the transformation matrix and can be expanded in orders $S = S^{(1)} + S^{(2)} + \dots$.
+            \begin{align}
+                S^{(1)}_{ml} &= -\frac{H'_{ml}}{E_m-E_l}\\
+                S^{(2)}_{ml} &= \frac{1}{E_m-E_l}\left[ \sum_{m'}\frac{H_{mm'}H_{m'l}}{E_{m'}-E_l}-\sum_{l'}\frac{H_{ml'}H_{l'l}}{E_m-E_{l'}} \right]
+            \end{align}
+        \end{framed}
+        From the formulas given by Winkler,
+        \begin{align}
+            \bra{N+1}S^{(1)}\ket{N} &= S_N^{(1)} = \begin{pmatrix}
+                0 & 0 & 0 & 0 \\
+                0 & 0 & -\frac{\sqrt{N}g_+}{\omega_{cav}-\delta_\sigma+\delta_\tau} & 0 \\
+                0 & 0 & 0 & 0 \\
+                -\frac{\sqrt{N}g_-}{\omega_{cav}+\delta_\sigma+\delta_\tau} & 0 & 0 & 0
+            \end{pmatrix}
+        \end{align}
+        However, this restricts our analysis to parameters so that the cavity is not in resonance with the $0\leftrightarrow3$ and $1\leftrightarrow2$ transitions.
+    \subsection{Effective Hamiltonian}
+        The overall effective Hamiltonian is then:
+        \begin{align}
+            H^{(0)} &= \hbar\omega_{cav}NI_4-\frac{\hbar}{2}(\delta_\sigma\sigma_z \\
+            H^{(1)} &= \frac{\hbar}{2}g_\sigma\left(\sqrt{N}\sigma_x(1+\tau_z)+\sqrt{N-1}\sigma_x(1-\tau_z)\right)+\frac{\hbar}{2}g_\tau\left(\sqrt{N}(1+\sigma_z)\tau_x-\sqrt{N-1}(1-\sigma_z)\tau_x\right) \\
+            H^{(2)} &= \frac{\hbar}{4}\left[ -\frac{Ng_-^2}{\omega_{cav}+\delta_\sigma+\delta_\tau}(1+\sigma_z)(1+\tau_z) +\frac{(N-1)g_+^2}{\omega_{cav}-\delta_\sigma+\delta_\tau}(1+\sigma_z)(1-\tau_z) \right.\nonumber\\
+            &\qquad\qquad\left. -\frac{Ng_+^2}{\omega_{cav}-\delta_\sigma+\delta_\tau}(1+\sigma_z)(1-\tau_z)+\frac{(N-1)g_-^2}{\omega_{cav}+\delta_\sigma+\delta_\tau}(1-\sigma_z)(1-\tau_z) \right]
+        \end{align}
+        Notice that the second order part simply accounts for small energy corrections.
+    \section{Two Qubit System}
+    \subsection{Effective Hamiltonian}
+    We apply a similar technique to the single qubit case so those steps are omitted. In addition, apply a second SW transformation to reduce our Hamiltonian to the following states: $\ket{00}$, $\ket{01}$, $\ket{10}$, and $\ket{11}$. Lastly, we make the assumption that the two qubits are under symmetric parameters.
+    The effective Hamiltonian is then:
+    \begin{align}
+        H_0 &= \hbar(\omega_{cav}N-\delta_\sigma-\frac{2g_\sigma^2}{\delta_\sigma}(N-1))+\hbar(-\delta_\tau-\frac{2g_\sigma^2}{\delta_\sigma})\cdot\textrm{diag}\left\{1,0,0,-1\right\} \\
+        V_1 &= \hbar\begin{pmatrix}
+            0 & \sqrt{N}g_\tau & \sqrt{N}g_\tau & 0 \\
+            \sqrt{N}g_\tau &0 & 0 & \sqrt{N-1}g_\tau \\
+            \sqrt{N}g_\tau & 0 & 0 & \sqrt{N-1}g_\tau \\
+            0              & \sqrt{N-1}g_\tau & \sqrt{N-1}g_\tau & 0
+        \end{pmatrix} \\
+        V_2 &= \hbar\cdot\textrm{diag}\left\{ -N\frac{2g_-^2}{\omega_{cav}+\delta_\sigma+\delta_\tau},(N-1)(\frac{g_+^2}{\omega_{cav}-\delta_\sigma+\delta_\tau}-\frac{g_-^2}{\omega_{cav}+\delta_\sigma+\delta_\tau}), \right.\nonumber\\
+        &\qquad\qquad\qquad \left. (N-1)(\frac{g_+^2}{\omega_{cav}-\delta_\sigma+\delta_\tau}-\frac{g_-^2}{\omega_{cav}+\delta_\sigma+\delta_\tau}),(N-2)\frac{2g_+^2}{\omega_{cav}-\delta_\sigma+\delta_\tau} \right\}
+    \end{align}
+    Notice again that the second order part simpy accounts for energy corrections.
+\end{document}

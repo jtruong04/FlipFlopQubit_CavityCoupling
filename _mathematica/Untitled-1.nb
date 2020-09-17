@@ -1,0 +1,1271 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     44669,       1263]
+NotebookOptionsPosition[     43664,       1241]
+NotebookOutlinePosition[     44001,       1256]
+CellTagsIndexPosition[     43958,       1253]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"HNfull", "=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       TagBox[
+        RowBox[{"(", "\[NoBreak]", GridBox[{
+           {
+            StyleBox["0",
+             FontColor->RGBColor[0, 0, 1]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox["N0"]}],
+             FontColor->RGBColor[0, 0, 1]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox["N0"]}],
+             FontColor->RGBColor[0, 0, 1]], 
+            StyleBox["0",
+             FontColor->RGBColor[0, 0, 1]], 
+            RowBox[{"gc", " ", 
+             SqrtBox["N0"]}], 
+            RowBox[{"gc", " ", 
+             SqrtBox["N0"]}], "0", "0", "0", "0", "0", "0", "0", "0", "0", 
+            "0"},
+           {
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox["N0"]}],
+             FontColor->RGBColor[0, 0, 1]], 
+            StyleBox[
+             RowBox[{"(", 
+              RowBox[{"wf", "-", "wcav"}], ")"}],
+             FontColor->RGBColor[0, 0, 1]], 
+            StyleBox["0",
+             FontColor->RGBColor[0, 0, 1]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "1"}]]}],
+             FontColor->RGBColor[0, 0, 1]], "0", "0", 
+            RowBox[{"gc", " ", 
+             SqrtBox[
+              RowBox[{"N0", "-", "1"}]]}], "0", 
+            RowBox[{"gc", " ", 
+             SqrtBox[
+              RowBox[{"N0", "-", "1"}]]}], "0", "0", "0", "0", "0", "0", "0"},
+           {
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox["N0"]}],
+             FontColor->RGBColor[0, 0, 1]], 
+            StyleBox["0",
+             FontColor->RGBColor[0, 0, 1]], 
+            StyleBox[
+             RowBox[{"(", 
+              RowBox[{"wf", "-", "wcav"}], ")"}],
+             FontColor->RGBColor[0, 0, 1]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "1"}]]}],
+             FontColor->RGBColor[0, 0, 1]], "0", "0", "0", 
+            RowBox[{"gc", " ", 
+             SqrtBox[
+              RowBox[{"N0", "-", "1"}]]}], "0", "0", 
+            RowBox[{"gc", " ", 
+             SqrtBox[
+              RowBox[{"N0", "-", "1"}]]}], "0", "0", "0", "0", "0"},
+           {
+            StyleBox["0",
+             FontColor->RGBColor[0, 0, 1]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "1"}]]}],
+             FontColor->RGBColor[0, 0, 1]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "1"}]]}],
+             FontColor->RGBColor[0, 0, 1]], 
+            StyleBox[
+             RowBox[{"2", " ", 
+              RowBox[{"(", 
+               RowBox[{"wf", "-", "wcav"}], ")"}]}],
+             FontColor->RGBColor[0, 0, 1]], "0", "0", "0", "0", "0", "0", "0", 
+            RowBox[{"gc", " ", 
+             SqrtBox[
+              RowBox[{"N0", "-", "2"}]]}], "0", 
+            RowBox[{"gc", " ", 
+             SqrtBox[
+              RowBox[{"N0", "-", "2"}]]}], "0", "0"},
+           {
+            RowBox[{"gc", " ", 
+             SqrtBox["N0"]}], "0", "0", "0", 
+            StyleBox[
+             RowBox[{"(", 
+              RowBox[{"wc", "-", "wcav"}], ")"}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "1"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "1"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gc", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "1"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]]},
+           {
+            RowBox[{"gc", " ", 
+             SqrtBox["N0"]}], "0", "0", "0", 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"(", 
+              RowBox[{"wc", "-", "wcav"}], ")"}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "1"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gc", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "1"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "1"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]]},
+           {"0", 
+            RowBox[{"gc", " ", 
+             SqrtBox[
+              RowBox[{"N0", "-", "1"}]]}], "0", "0", 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "1"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"wf", "-", "wcav"}], ")"}], "+", 
+              RowBox[{"(", 
+               RowBox[{"wc", "-", "wcav"}], ")"}]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "2"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gc", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "2"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]]},
+           {"0", "0", 
+            RowBox[{"gc", " ", 
+             SqrtBox[
+              RowBox[{"N0", "-", "1"}]]}], "0", 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "1"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"wf", "-", "wcav"}], ")"}], "+", 
+              RowBox[{"(", 
+               RowBox[{"wc", "-", "wcav"}], ")"}]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "2"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gc", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "2"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]]},
+           {"0", 
+            RowBox[{"gc", " ", 
+             SqrtBox[
+              RowBox[{"N0", "-", "1"}]]}], "0", "0", 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "1"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"wf", "-", "wcav"}], ")"}], "+", 
+              RowBox[{"(", 
+               RowBox[{"wc", "-", "wcav"}], ")"}]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gc", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "2"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "2"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]]},
+           {"0", "0", "0", "0", 
+            StyleBox[
+             RowBox[{"gc", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "1"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gc", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "1"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"2", " ", 
+              RowBox[{"(", 
+               RowBox[{"wc", "-", "wcav"}], ")"}]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "2"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "2"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]]},
+           {"0", "0", 
+            RowBox[{"gc", " ", 
+             SqrtBox[
+              RowBox[{"N0", "-", "1"}]]}], "0", 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "1"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"wf", "-", "wcav"}], ")"}], "+", 
+              RowBox[{"(", 
+               RowBox[{"wc", "-", "wcav"}], ")"}]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "2"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gc", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "2"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]]},
+           {"0", "0", "0", 
+            RowBox[{"gc", " ", 
+             SqrtBox[
+              RowBox[{"N0", "-", "2"}]]}], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "2"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "2"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{
+              RowBox[{"2", " ", 
+               RowBox[{"(", 
+                RowBox[{"wf", "-", "wcav"}], ")"}]}], "+", 
+              RowBox[{"(", 
+               RowBox[{"wc", "-", "wcav"}], ")"}]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gc", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "3"}]]}],
+             FontColor->RGBColor[1, 0, 0]]},
+           {"0", "0", "0", "0", 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gc", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "2"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gc", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "2"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "2"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"wf", "-", "wcav"}], ")"}], "+", 
+              RowBox[{"2", " ", 
+               RowBox[{"(", 
+                RowBox[{"wc", "-", "wcav"}], ")"}]}]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "3"}]]}],
+             FontColor->RGBColor[1, 0, 0]]},
+           {"0", "0", "0", 
+            RowBox[{"gc", " ", 
+             SqrtBox[
+              RowBox[{"N0", "-", "2"}]]}], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "2"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "2"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{
+              RowBox[{"2", " ", 
+               RowBox[{"(", 
+                RowBox[{"wf", "-", "wcav"}], ")"}]}], "+", 
+              RowBox[{"(", 
+               RowBox[{"wc", "-", "wcav"}], ")"}]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gc", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "3"}]]}],
+             FontColor->RGBColor[1, 0, 0]]},
+           {"0", "0", "0", "0", 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gc", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "2"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "2"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gc", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "2"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"wf", "-", "wcav"}], ")"}], "+", 
+              RowBox[{"2", " ", 
+               RowBox[{"(", 
+                RowBox[{"wc", "-", "wcav"}], ")"}]}]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "3"}]]}],
+             FontColor->RGBColor[1, 0, 0]]},
+           {"0", "0", "0", "0", 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox["0",
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gc", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "3"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "3"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gc", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "3"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{"gf", " ", 
+              SqrtBox[
+               RowBox[{"N0", "-", "3"}]]}],
+             FontColor->RGBColor[1, 0, 0]], 
+            StyleBox[
+             RowBox[{
+              RowBox[{"2", " ", 
+               RowBox[{"(", 
+                RowBox[{"wf", "-", "wcav"}], ")"}]}], "+", 
+              RowBox[{"2", " ", 
+               RowBox[{"(", 
+                RowBox[{"wc", "-", "wcav"}], ")"}]}]}],
+             FontColor->RGBColor[1, 0, 0]]}
+          },
+          GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.27999999999999997`], {
+               Offset[0.7]}, 
+              Offset[0.27999999999999997`]}, "Rows" -> {
+              Offset[0.2], {
+               Offset[0.4]}, 
+              Offset[0.2]}}], "\[NoBreak]", ")"}],
+        Function[BoxForm`e$, 
+         MatrixForm[BoxForm`e$]]], "+", 
+       RowBox[{"N0", "*", "wcav", "*", 
+        RowBox[{"IdentityMatrix", "[", "16", "]"}]}]}], "//.", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"wc", "\[Rule]", " ", 
+         RowBox[{"\[Delta]c", "+", "wcav"}]}], ",", 
+        RowBox[{"wf", "\[Rule]", 
+         RowBox[{"\[Delta]f", "+", "wcav"}]}]}], "}"}]}], "//", 
+     "Simplify"}]}], ";"}], TraditionalForm]], "Input",
+ CellChangeTimes->{{3.803917144382023*^9, 3.803917176190913*^9}, {
+   3.8039172109616528`*^9, 3.803917263155835*^9}, {3.8039172987244415`*^9, 
+   3.8039173018482237`*^9}, {3.8039173681212254`*^9, 3.8039173854446425`*^9}, 
+   3.804006880606935*^9},
+ CellLabel->"In[5]:=",ExpressionUUID->"fb99ccae-ca42-450c-875a-7e39339da6b2"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"H0full", "=", 
+   RowBox[{"HNfull", "[", 
+    RowBox[{"[", 
+     RowBox[{"1", ",", "1"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"H1full", "=", 
+   RowBox[{"HNfull", "[", 
+    RowBox[{"[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"1", ",", "2", ",", "3", ",", "5", ",", "6"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "2", ",", "3", ",", "5", ",", "6"}], "}"}]}], "]"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"H2full", "=", 
+   RowBox[{"HNfull", "[", 
+    RowBox[{"[", 
+     RowBox[{
+      RowBox[{"1", ";;", "11"}], ",", 
+      RowBox[{"1", ";;", "11"}]}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"H3full", "=", 
+   RowBox[{"HNfull", "[", 
+    RowBox[{"[", 
+     RowBox[{
+      RowBox[{"1", ";;", "15"}], ",", 
+      RowBox[{"1", ";;", "15"}]}], "]"}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.8039173046761284`*^9, 3.803917348668687*^9}, {
+  3.803917403985304*^9, 3.8039174553288827`*^9}, {3.804006901128172*^9, 
+  3.804006902687801*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"98353a51-7cdb-49ae-ac4f-1eb5c6202188"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"H0Sw", "=", "H0full"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"H1Sw", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"SWTransH", "[", 
+         RowBox[{
+          RowBox[{"Diagonal", "[", "H1full", "]"}], ",", 
+          RowBox[{"H1full", "-", 
+           RowBox[{"DiagonalMatrix", "[", 
+            RowBox[{"Diagonal", "[", "H1full", "]"}], "]"}]}], ",", "3", ",", 
+          "2"}], "]"}], "+", 
+        RowBox[{"DiagonalMatrix", "[", 
+         RowBox[{"Diagonal", "[", "H1full", "]"}], "]"}]}], ")"}], "[", 
+      RowBox[{"[", 
+       RowBox[{
+        RowBox[{"1", ";;", "3"}], ",", 
+        RowBox[{"1", ";;", "3"}]}], "]"}], "]"}], "//.", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\[Delta]f", "\[Rule]", " ", 
+        RowBox[{"\[Delta]", "-", 
+         RowBox[{"2", 
+          RowBox[{
+           SuperscriptBox["gc", "2"], "/", "\[Delta]c"}]}]}]}], ",", 
+       RowBox[{"gf", "\[Rule]", " ", 
+        RowBox[{"\[Delta]", "*", 
+         RowBox[{
+          SubscriptBox["\[CapitalDelta]", "N0"], "/", 
+          SqrtBox[
+           RowBox[{
+            RowBox[{"4", "N0"}], "-", "2"}]]}]}]}], ",", 
+       RowBox[{
+        SqrtBox["N0"], "\[Rule]", 
+        RowBox[{
+         RowBox[{"Cos", "[", 
+          SubscriptBox["\[Phi]", "N0"], "]"}], "*", 
+         SqrtBox[
+          RowBox[{
+           RowBox[{"4", "N0"}], "-", "2"}]]}]}], ",", 
+       RowBox[{
+        SqrtBox[
+         RowBox[{"N0", "-", "1"}]], "\[Rule]", 
+        RowBox[{
+         RowBox[{"Sin", "[", 
+          SubscriptBox["\[Phi]", "N0"], "]"}], "*", 
+         SqrtBox[
+          RowBox[{
+           RowBox[{"4", "N0"}], "-", "2"}]]}]}]}], "}"}]}], "//", 
+    "Simplify"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"HNSw", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"SWTransH", "[", 
+         RowBox[{
+          RowBox[{"Diagonal", "[", "HNfull", "]"}], ",", 
+          RowBox[{"HNfull", "-", 
+           RowBox[{"DiagonalMatrix", "[", 
+            RowBox[{"Diagonal", "[", "HNfull", "]"}], "]"}]}], ",", "4", ",", 
+          "2"}], "]"}], "+", 
+        RowBox[{"DiagonalMatrix", "[", 
+         RowBox[{"Diagonal", "[", "HNfull", "]"}], "]"}]}], ")"}], "[", 
+      RowBox[{"[", 
+       RowBox[{
+        RowBox[{"1", ";;", "4"}], ",", 
+        RowBox[{"1", ";;", "4"}]}], "]"}], "]"}], "//.", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\[Delta]f", "\[Rule]", " ", 
+        RowBox[{"\[Delta]", "-", 
+         RowBox[{"2", 
+          RowBox[{
+           SuperscriptBox["gc", "2"], "/", "\[Delta]c"}]}]}]}], ",", 
+       RowBox[{"gf", "\[Rule]", " ", 
+        RowBox[{"\[Delta]", "*", 
+         RowBox[{
+          SubscriptBox["\[CapitalDelta]", "N0"], "/", 
+          SqrtBox[
+           RowBox[{
+            RowBox[{"4", "N0"}], "-", "2"}]]}]}]}], ",", 
+       RowBox[{
+        SqrtBox["N0"], "\[Rule]", 
+        RowBox[{
+         RowBox[{"Cos", "[", 
+          SubscriptBox["\[Phi]", "N0"], "]"}], "*", 
+         SqrtBox[
+          RowBox[{
+           RowBox[{"4", "N0"}], "-", "2"}]]}]}], ",", 
+       RowBox[{
+        SqrtBox[
+         RowBox[{"N0", "-", "1"}]], "\[Rule]", 
+        RowBox[{
+         RowBox[{"Sin", "[", 
+          SubscriptBox["\[Phi]", "N0"], "]"}], "*", 
+         SqrtBox[
+          RowBox[{
+           RowBox[{"4", "N0"}], "-", "2"}]]}]}]}], "}"}]}], "//", 
+    "Simplify"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.803917467430807*^9, 3.8039176440997*^9}, {
+  3.8039176811558356`*^9, 3.803917717483881*^9}, {3.8039179475393057`*^9, 
+  3.803917976113762*^9}, {3.803918043239894*^9, 3.8039180763828707`*^9}, {
+  3.804006911498311*^9, 3.804006918867503*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"ef741204-c067-418d-b976-50555c93e392"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"\[CapitalDelta]", "[", "N0_", "]"}], ":=", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"N0", "\[Equal]", "0"}], ",", "0", ",", 
+       RowBox[{"gf", "*", 
+        RowBox[{
+         SqrtBox[
+          RowBox[{
+           RowBox[{"4", "N0"}], "-", "2"}]], "/", "\[Delta]"}]}]}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"\[Phi]", "[", "N0_", "]"}], ":=", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"N0", "\[Equal]", "0"}], ",", "0", ",", 
+       RowBox[{"ArcTan", "[", 
+        RowBox[{
+         SqrtBox["N0"], ",", 
+         SqrtBox[
+          RowBox[{"N0", "-", "1"}]]}], "]"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"H", "[", "N0_", "]"}], ":=", 
+     RowBox[{"(", GridBox[{
+        {
+         RowBox[{"N0", " ", 
+          RowBox[{"(", 
+           RowBox[{"wcav", "-", 
+            FractionBox[
+             RowBox[{"2", " ", 
+              SuperscriptBox["gc", "2"]}], "\[Delta]c"]}], ")"}]}], 
+         RowBox[{"\[Delta]", " ", 
+          RowBox[{"\[CapitalDelta]", "[", "N0", "]"}], 
+          RowBox[{"Cos", "[", 
+           RowBox[{"\[Phi]", "[", "N0", "]"}], "]"}]}], 
+         RowBox[{"\[Delta]", " ", 
+          RowBox[{"\[CapitalDelta]", "[", "N0", "]"}], " ", 
+          RowBox[{"Cos", "[", 
+           RowBox[{"\[Phi]", "[", "N0", "]"}], "]"}]}], "0"},
+        {
+         RowBox[{"\[Delta]", " ", 
+          RowBox[{"\[CapitalDelta]", "[", "N0", "]"}], " ", 
+          RowBox[{"Cos", "[", 
+           RowBox[{"\[Phi]", "[", "N0", "]"}], "]"}]}], 
+         RowBox[{"\[Delta]", "+", 
+          RowBox[{"N0", " ", 
+           RowBox[{"(", 
+            RowBox[{"wcav", "-", 
+             FractionBox[
+              RowBox[{"2", " ", 
+               SuperscriptBox["gc", "2"]}], "\[Delta]c"]}], ")"}]}]}], "0", 
+         RowBox[{"\[Delta]", " ", 
+          RowBox[{"\[CapitalDelta]", "[", "N0", "]"}], "  ", 
+          RowBox[{"Sin", "[", 
+           RowBox[{"\[Phi]", "[", "N0", "]"}], "]"}]}]},
+        {
+         RowBox[{"\[Delta]", " ", 
+          RowBox[{"\[CapitalDelta]", "[", "N0", "]"}], " ", 
+          RowBox[{"Cos", "[", 
+           RowBox[{"\[Phi]", "[", "N0", "]"}], "]"}]}], "0", 
+         RowBox[{"\[Delta]", "+", 
+          RowBox[{"N0", " ", 
+           RowBox[{"(", 
+            RowBox[{"wcav", "-", 
+             FractionBox[
+              RowBox[{"2", " ", 
+               SuperscriptBox["gc", "2"]}], "\[Delta]c"]}], ")"}]}]}], 
+         RowBox[{"\[Delta]", " ", 
+          RowBox[{"\[CapitalDelta]", "[", "N0", "]"}], "  ", 
+          RowBox[{"Sin", "[", 
+           RowBox[{"\[Phi]", "[", "N0", "]"}], "]"}]}]},
+        {"0", 
+         RowBox[{"\[Delta]", " ", 
+          RowBox[{"\[CapitalDelta]", "[", "N0", "]"}], " ", 
+          RowBox[{"Sin", "[", 
+           RowBox[{"\[Phi]", "[", "N0", "]"}], "]"}]}], 
+         RowBox[{"\[Delta]", " ", 
+          RowBox[{"\[CapitalDelta]", "[", "N0", "]"}], "  ", 
+          RowBox[{"Sin", "[", 
+           RowBox[{"\[Phi]", "[", "N0", "]"}], "]"}]}], 
+         RowBox[{
+          RowBox[{"2", " ", "\[Delta]"}], "+", 
+          RowBox[{"N0", " ", 
+           RowBox[{"(", 
+            RowBox[{"wcav", "-", 
+             FractionBox[
+              RowBox[{"2", " ", 
+               SuperscriptBox["gc", "2"]}], "\[Delta]c"]}], ")"}]}]}]}
+       }], ")"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"R", "[", "N0_", "]"}], ":=", 
+     RowBox[{"(", GridBox[{
+        {
+         RowBox[{"1", "-", 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"\[CapitalDelta]", "[", "N0", "]"}], "2"], "*", 
+           SuperscriptBox[
+            RowBox[{"Cos", "[", 
+             RowBox[{"\[Phi]", "[", "N0", "]"}], "]"}], "2"]}]}], "0", 
+         RowBox[{
+          SqrtBox["2"], 
+          RowBox[{"\[CapitalDelta]", "[", "N0", "]"}], "*", 
+          RowBox[{"Cos", "[", 
+           RowBox[{"\[Phi]", "[", "N0", "]"}], "]"}]}], 
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"\[CapitalDelta]", "[", "N0", "]"}], "2"], "*", 
+          RowBox[{"Sin", "[", 
+           RowBox[{"\[Phi]", "[", "N0", "]"}], "]"}], "*", 
+          RowBox[{"Cos", "[", 
+           RowBox[{"\[Phi]", "[", "N0", "]"}], "]"}]}]},
+        {
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"\[CapitalDelta]", "[", "N0", "]"}]}], "*", 
+          RowBox[{"Cos", "[", 
+           RowBox[{"\[Phi]", "[", "N0", "]"}], "]"}]}], 
+         RowBox[{"1", "/", 
+          SqrtBox["2"]}], 
+         RowBox[{
+          RowBox[{"1", "/", 
+           SqrtBox["2"]}], "-", 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"\[CapitalDelta]", "[", "N0", "]"}], "2"], "/", 
+           RowBox[{"(", 
+            SqrtBox["2"], ")"}]}]}], 
+         RowBox[{
+          RowBox[{"\[CapitalDelta]", "[", "N0", "]"}], "*", 
+          RowBox[{"Sin", "[", 
+           RowBox[{"\[Phi]", "[", "N0", "]"}], "]"}]}]},
+        {
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"\[CapitalDelta]", "[", "N0", "]"}]}], "*", 
+          RowBox[{"Cos", "[", 
+           RowBox[{"\[Phi]", "[", "N0", "]"}], "]"}]}], 
+         RowBox[{
+          RowBox[{"-", "1"}], "/", 
+          SqrtBox["2"]}], 
+         RowBox[{
+          RowBox[{"1", "/", 
+           SqrtBox["2"]}], "-", 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"\[CapitalDelta]", "[", "N0", "]"}], "2"], "/", 
+           RowBox[{"(", 
+            SqrtBox["2"], ")"}]}]}], 
+         RowBox[{
+          RowBox[{"\[CapitalDelta]", "[", "N0", "]"}], "*", 
+          RowBox[{"Sin", "[", 
+           RowBox[{"\[Phi]", "[", "N0", "]"}], "]"}]}]},
+        {
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"\[CapitalDelta]", "[", "N0", "]"}], "2"], "*", 
+          RowBox[{"Sin", "[", 
+           RowBox[{"\[Phi]", "[", "N0", "]"}], "]"}], "*", 
+          RowBox[{"Cos", "[", 
+           RowBox[{"\[Phi]", "[", "N0", "]"}], "]"}]}], "0", 
+         RowBox[{
+          RowBox[{"-", 
+           SqrtBox["2"]}], 
+          RowBox[{"\[CapitalDelta]", "[", "N0", "]"}], "*", 
+          RowBox[{"Sin", "[", 
+           RowBox[{"\[Phi]", "[", "N0", "]"}], "]"}]}], 
+         RowBox[{"1", "-", 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"\[CapitalDelta]", "[", "N0", "]"}], "2"], "*", 
+           SuperscriptBox[
+            RowBox[{"Sin", "[", 
+             RowBox[{"\[Phi]", "[", "N0", "]"}], "]"}], "2"]}]}]}
+       }], ")"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.804006767334929*^9, 3.804006825637774*^9}, {
+   3.804020514789459*^9, 3.804020522861239*^9}, {3.8040205852333307`*^9, 
+   3.804020606404158*^9}, 3.804020661899643*^9, {3.80402075696056*^9, 
+   3.80402081813662*^9}, {3.8040208780324306`*^9, 3.8040210127785597`*^9}, 
+   3.804021075699141*^9, 
+   3.804021598957337*^9},ExpressionUUID->"9a79696f-6ee4-4621-8487-\
+d9919874ea5e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"BlockDiagonalMatrix", "[", 
+   RowBox[{"b", ":", 
+    RowBox[{"{", 
+     RowBox[{"__", "?", "MatrixQ"}], "}"}]}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"r", ",", "c", ",", 
+      RowBox[{"n", "=", 
+       RowBox[{"Length", "[", "b", "]"}]}], ",", "i", ",", "j"}], "}"}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"r", ",", "c"}], "}"}], "=", 
+      RowBox[{"Transpose", "[", 
+       RowBox[{"Dimensions", "/@", "b"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"ArrayFlatten", "[", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"i", "\[Equal]", "j"}], ",", 
+          RowBox[{"b", "[", 
+           RowBox[{"[", "i", "]"}], "]"}], ",", 
+          RowBox[{"ConstantArray", "[", 
+           RowBox[{"0", ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"r", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], ",", 
+              RowBox[{"c", "[", 
+               RowBox[{"[", "j", "]"}], "]"}]}], "}"}]}], "]"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "n"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "n"}], "}"}]}], "]"}], "]"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.804021508821375*^9, 3.804021508828738*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"392b193b-7f16-41d8-bd0a-6b00e3759c09"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nmin", "=", "0"}], ";", 
+  RowBox[{"nmax", "=", "1"}], ";", 
+  RowBox[{"Nmin", "=", "nmin"}], ";", 
+  RowBox[{"Nmax", "=", 
+   RowBox[{"nmax", "+", "2"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Hlist", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"H", "[", "j", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"j", ",", "Nmin", ",", "Nmax"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Rlist", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"R", "[", "j", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"j", ",", "Nmin", ",", "Nmax"}], "}"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.8040216016122513`*^9, 3.804021656194265*^9}},
+ CellLabel->"In[37]:=",ExpressionUUID->"5e58a67c-dde9-4dc6-b14c-4de9696d220a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Htotal", "=", 
+   RowBox[{"BlockDiagonalMatrix", "[", "Hlist", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Rtotal", "=", 
+   RowBox[{"BlockDiagonalMatrix", "[", "Rlist", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Series", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Inverse", "[", "Rtotal", "]"}], ".", "Htotal", ".", "Rtotal"}],
+      ",", 
+     RowBox[{"{", 
+      RowBox[{"gf", ",", "0", ",", "2"}], "}"}]}], "]"}], "//", "Normal"}], "//",
+   "Simplify"}]}], "Input",
+ CellChangeTimes->{{3.804021513527525*^9, 3.804021555456223*^9}, {
+   3.80402164314534*^9, 3.804021647995776*^9}, 3.804021683981059*^9},
+ CellLabel->"In[43]:=",ExpressionUUID->"993be77f-ec6c-4bfd-ab58-b6dfdd404ebf"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+      ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+     ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0", ",", "\[Delta]", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+     ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+     ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0", ",", "0", ",", "\[Delta]", ",", "0", ",", "0", ",", "0", ",", "0", 
+     ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+     ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0", ",", 
+     RowBox[{"2", " ", "\[Delta]"}], ",", "0", ",", "0", ",", "0", ",", "0", 
+     ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+     ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0", ",", "0", ",", 
+     RowBox[{"wcav", "-", 
+      FractionBox[
+       RowBox[{"4", " ", 
+        SuperscriptBox["gf", "2"]}], "\[Delta]"], "-", 
+      FractionBox[
+       RowBox[{"2", " ", 
+        SuperscriptBox["gc", "2"]}], "\[Delta]c"]}], ",", "0", ",", "0", ",", 
+     "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+     "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+     RowBox[{"wcav", "+", "\[Delta]", "-", 
+      FractionBox[
+       RowBox[{"2", " ", 
+        SuperscriptBox["gc", "2"]}], "\[Delta]c"]}], ",", "0", ",", "0", ",", 
+     "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+     "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+     RowBox[{"wcav", "+", 
+      FractionBox[
+       RowBox[{"4", " ", 
+        SuperscriptBox["gf", "2"]}], "\[Delta]"], "+", "\[Delta]", "-", 
+      FractionBox[
+       RowBox[{"2", " ", 
+        SuperscriptBox["gc", "2"]}], "\[Delta]c"]}], ",", "0", ",", "0", ",", 
+     "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], "}"}],
+    ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+     RowBox[{"wcav", "+", 
+      RowBox[{"2", " ", "\[Delta]"}], "-", 
+      FractionBox[
+       RowBox[{"2", " ", 
+        SuperscriptBox["gc", "2"]}], "\[Delta]c"]}], ",", "0", ",", "0", ",", 
+     "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+      ",", 
+     RowBox[{
+      RowBox[{"2", " ", "wcav"}], "-", 
+      FractionBox[
+       RowBox[{"8", " ", 
+        SuperscriptBox["gf", "2"]}], "\[Delta]"], "-", 
+      FractionBox[
+       RowBox[{"4", " ", 
+        SuperscriptBox["gc", "2"]}], "\[Delta]c"]}], ",", "0", ",", "0", ",", 
+     "0", ",", "0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+      ",", "0", ",", 
+     RowBox[{
+      RowBox[{"2", " ", "wcav"}], "+", "\[Delta]", "-", 
+      FractionBox[
+       RowBox[{"4", " ", 
+        SuperscriptBox["gc", "2"]}], "\[Delta]c"]}], ",", "0", ",", "0", ",", 
+     "0", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+      ",", "0", ",", "0", ",", 
+     RowBox[{
+      RowBox[{"2", " ", "wcav"}], "+", 
+      FractionBox[
+       RowBox[{"4", " ", 
+        SuperscriptBox["gf", "2"]}], "\[Delta]"], "+", "\[Delta]", "-", 
+      FractionBox[
+       RowBox[{"4", " ", 
+        SuperscriptBox["gc", "2"]}], "\[Delta]c"]}], ",", "0", ",", "0", ",", 
+     "0", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+      ",", "0", ",", "0", ",", "0", ",", 
+     RowBox[{"2", " ", 
+      RowBox[{"(", 
+       RowBox[{"wcav", "+", 
+        FractionBox[
+         RowBox[{"2", " ", 
+          SuperscriptBox["gf", "2"]}], "\[Delta]"], "+", "\[Delta]", "-", 
+        FractionBox[
+         RowBox[{"2", " ", 
+          SuperscriptBox["gc", "2"]}], "\[Delta]c"]}], ")"}]}], ",", "0", ",",
+      "0", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+      ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+     RowBox[{"3", " ", 
+      RowBox[{"(", 
+       RowBox[{"wcav", "-", 
+        FractionBox[
+         RowBox[{"4", " ", 
+          SuperscriptBox["gf", "2"]}], "\[Delta]"], "-", 
+        FractionBox[
+         RowBox[{"2", " ", 
+          SuperscriptBox["gc", "2"]}], "\[Delta]c"]}], ")"}]}], ",", "0", ",",
+      "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+      ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+     RowBox[{
+      RowBox[{"3", " ", "wcav"}], "+", "\[Delta]", "-", 
+      FractionBox[
+       RowBox[{"6", " ", 
+        SuperscriptBox["gc", "2"]}], "\[Delta]c"]}], ",", "0", ",", "0"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+      ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+     RowBox[{
+      RowBox[{"3", " ", "wcav"}], "+", 
+      FractionBox[
+       RowBox[{"4", " ", 
+        SuperscriptBox["gf", "2"]}], "\[Delta]"], "+", "\[Delta]", "-", 
+      FractionBox[
+       RowBox[{"6", " ", 
+        SuperscriptBox["gc", "2"]}], "\[Delta]c"]}], ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+      ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+     ",", 
+     RowBox[{
+      RowBox[{"3", " ", "wcav"}], "+", 
+      FractionBox[
+       RowBox[{"8", " ", 
+        SuperscriptBox["gf", "2"]}], "\[Delta]"], "+", 
+      RowBox[{"2", " ", "\[Delta]"}], "-", 
+      FractionBox[
+       RowBox[{"6", " ", 
+        SuperscriptBox["gc", "2"]}], "\[Delta]c"]}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.8040215560736103`*^9, {3.8040216496586103`*^9, 3.80402168447893*^9}},
+ CellLabel->"Out[45]=",ExpressionUUID->"d7698ade-a0c9-4ef5-837f-4d14125edc99"]
+}, Open  ]]
+},
+WindowSize->{1680, 1005},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 21585, 619, 378, "Input",ExpressionUUID->"fb99ccae-ca42-450c-875a-7e39339da6b2"],
+Cell[22146, 641, 1174, 34, 94, "Input",ExpressionUUID->"98353a51-7cdb-49ae-ac4f-1eb5c6202188"],
+Cell[23323, 677, 3815, 111, 128, "Input",ExpressionUUID->"ef741204-c067-418d-b976-50555c93e392"],
+Cell[27141, 790, 6964, 189, 362, "Input",ExpressionUUID->"9a79696f-6ee4-4621-8487-d9919874ea5e"],
+Cell[34108, 981, 1447, 39, 52, "Input",ExpressionUUID->"392b193b-7f16-41d8-bd0a-6b00e3759c09"],
+Cell[35558, 1022, 823, 24, 73, "Input",ExpressionUUID->"5e58a67c-dde9-4dc6-b14c-4de9696d220a"],
+Cell[CellGroupData[{
+Cell[36406, 1050, 779, 21, 73, "Input",ExpressionUUID->"993be77f-ec6c-4bfd-ab58-b6dfdd404ebf"],
+Cell[37188, 1073, 6460, 165, 214, "Output",ExpressionUUID->"d7698ade-a0c9-4ef5-837f-4d14125edc99"]
+}, Open  ]]
+}
+]
+*)
+
